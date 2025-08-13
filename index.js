@@ -5,8 +5,8 @@ const http = require('http');
 
 const bot = new Telegraf(process.env.BOT_TOKEN);
 
-let megaEmail = '';
-let megaPass = '';
+let megaEmail = 'mega25700@gmail.com';
+let megaPass = 'Megaaccount@3487';
 let megaStorage = null;
 
 // ====== Mega Login ======
