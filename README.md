@@ -1,15 +1,46 @@
-# MEGA Rename Bot (Telegram)
+# Mega.nz Rename Bot
 
-Simple Telegram bot that logs into MEGA (in-memory), renames all files/folders to a base name, and logs out.
+A Telegram bot to login into your Mega.nz account and rename files/folders.
 
 ## Features
-- /login -> login to MEGA (kept in memory)
-- /rename_all <basename> -> rename all files/folders to `<basename>_1`, `<basename>_2`, ...
-- auto logout after rename
-- works with large accounts (only renames metadata)
+- 🔑 Login with Mega.nz credentials
+- ✏️ Rename files/folders
+- 🚪 Logout anytime
+- 🌐 MongoDB session storage
+- ✅ Supports up to 200GB (Mega limits apply)
 
-## Setup (local)
-1. Clone:
+---
+
+## Deploy Guide
+
+### 🔹 Render
+1. Fork this repo
+2. Create **Web Service**
+3. Add ENV variables:
+   - `BOT_TOKEN` = Telegram Bot Token
+   - `MONGO_URI` = MongoDB connection string
+4. Build Command → `pip install -r requirements.txt`
+5. Start Command → `gunicorn bot:app --bind 0.0.0.0:$PORT`
+6. Deploy 🚀
+
+---
+
+### 🔹 Koyeb
+1. Fork this repo
+2. Create new **Service**
+3. Runtime → Python
+4. Add ENV:
+   - `BOT_TOKEN`
+   - `MONGO_URI`
+5. Expose Port → `$PORT`
+6. Deploy 🚀
+
+---
+
+### 🔹 Heroku
+1. Install Heroku CLI
+2. Run:
    ```bash
-   git clone <your-repo-url>
-   cd mega-rename-bot
+   heroku create mega-rename-bot
+   heroku config:set BOT_TOKEN=your_token MONGO_URI=your_mongo_uri
+   git push heroku main
