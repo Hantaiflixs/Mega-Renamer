@@ -20,7 +20,7 @@ def home():
 
 # ENV
 BOT_TOKEN = os.getenv("BOT_TOKEN")
-MONGO_URI = os.getenv("MONGO_URI")
+MONGO_URI = os.getenv("mongodb+srv://dbuser1:dbuserpass0606@cluster0.st7att7.mongodb.net/?retryWrites=true&w=majority&appName=Cluster0")
 
 # DB setup
 mongo_client = MongoClient(MONGO_URI)
